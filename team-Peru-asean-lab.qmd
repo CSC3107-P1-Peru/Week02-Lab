@@ -1,0 +1,327 @@
+---
+title: "Asean Meat Production 2018 - 2021"
+author: "Team Peru"
+format: html
+toc: true
+number-sections: true
+---
+
+```{r}
+#| label: setup-meat
+#| message: false
+library(tidyverse)
+meat <- read_csv("meat.csv")
+```
+
+# Inspect the `meat` Tibble
+
+## Prediction Individual
+
+### Predict Class
+country: Character\
+animal: Character\
+year: Numeric\
+production: Numeric
+
+### Predict Number of Distinct Values
+country: 10\
+animal: 7\
+year: 4
+
+### Predict the Values
+nrow(meat) = 280\
+ncol(meat) = 4
+
+## Answer by Querying
+
+### Class
+
+#### Country
+```{r}
+#| label: meat-class-country
+#| echo: true
+#| eval: true
+#| include: true
+class(meat$country)
+```
+
+#### animal
+```{r}
+#| label: meat-class-animal
+#| echo: true
+#| eval: true
+#| include: true
+class(meat$animal)
+```
+
+#### year
+```{r}
+#| label: meat-class-year
+#| echo: true
+#| eval: true
+#| include: true
+class(meat$year)
+```
+
+#### production
+```{r}
+#| label: meat-class-production
+#| echo: true
+#| eval: true
+#| include: true
+class(meat$production)
+```
+
+### Distinct Values
+
+#### country
+```{r}
+#| label: distinct-values
+#| echo: true
+#| eval: true
+#| include: true
+length(unique(meat$country))
+```
+#### animal
+```{r}
+#| label: distinct-values-animal
+#| echo: true
+#| eval: true
+#| include: true
+length(unique(meat$animal))
+```
+#### year
+```{r}
+#| label: distinct-values-year
+#| echo: true
+#| eval: true
+#| include: true
+length(unique(meat$year))
+```
+
+### Number of Rows and Columns
+
+#### Number of Rows of Meat
+```{r}
+#| label: nrow-meat
+#| echo: true
+#| eval: true
+#| include: true
+nrow(meat)
+```
+#### Number of Columns of Meat
+```{r}
+#| label: ncol-meat
+#| echo: true
+#| eval: true
+#| include: true
+ncol(meat)
+```
+
+### Cross Check Through glimpse()
+```{r}
+#| label: cross-check-glimpse
+#| echo: true
+#| eval: true
+#| include: true
+glimpse(meat)
+```
+
+## Looking Into The Rows
+
+### Head
+```{r}
+#| label: head-meat
+#| echo: true
+#| eval: true
+#| include: true
+head(meat)
+```
+
+### Tail
+```{r}
+#| label: tail-meat
+#| echo: true
+#| eval: true
+#| include: true
+tail(meat)
+```
+
+# Handle Missing Values
+
+## Checking if There Are Missing Values
+```{r}
+#| label: if-there-is-missing-values
+#| echo: true
+#| eval: true
+#| include: true
+any(is.na(meat$production))
+```
+
+## List production Column That Is NA
+```{r}
+#| label: list-missing-values
+#| echo: true
+#| eval: true
+#| include: true
+meat[is.na(meat$production), c("country", "animal", "year")]
+```
+
+### Cross Check Mising Rows By Second Method
+```{r}
+#| label: cross-check-missing-rows
+#| echo: true
+#| eval: true
+#| include: true
+expected_decrease <- sum(is.na(meat$production))
+meat_complete <- meat[!is.na(meat$production), ]
+actual_decrease <- nrow(meat) - nrow(meat_complete)
+actual_decrease == expected_decrease
+```
+
+## Compute Total ASEAN Production Across All Years
+
+### Without NA Data Removed
+```{r}
+#| label: total-production-without-na
+#| echo: true
+#| eval: true
+#| include: true
+sum(meat$production)
+```
+
+### With NA Data Removed
+```{r}
+#| label: total-production-with-na
+#| echo: true
+#| eval: true
+#| include: true
+sum(meat$production, na.rm = TRUE)
+```
+
+## Assumptions And Whether That Assumption Is Justifiable (TODO)
+
+# Compare Countries in 2020
+
+## Country With The Maximum Poultry Production In 2020
+```{r}
+#| label: country-with-maximum-poultry-production-2020
+#| echo: true
+#| eval: true
+#| include: true
+mask_2020_poultry <- meat$year == 2020 & meat$animal == "poultry"
+poultry_2020 <- meat[mask_2020_poultry, ]
+max_prod_2020 <- max(poultry_2020$production, na.rm = TRUE)
+poultry_2020$country[poultry_2020$production == max_prod_2020]
+```
+
+### Cross Check By Second Method
+```{r}
+#| label: cross-check-max-poultry-2020
+#| echo: true
+#| eval: true
+#| include: true
+max_val <- max(poultry_2020$production, na.rm = TRUE)
+top_country_v1 <- poultry_2020$country[poultry_2020$production == max_val]
+poultry_2020$rank_desc <- min_rank(desc(poultry_2020$production))
+top_country_v2 <- poultry_2020$country[poultry_2020$rank_desc == 1]
+identical(top_country_v1, top_country_v2)
+```
+
+## Country With Second-Highest Poultry Production In 2020
+```{r}
+#| label: country-with-second-highest-poultry-production-2020
+#| echo: true
+#| eval: true
+#| include: true
+poultry_2020 <- meat[meat$year == 2020 & meat$animal == "poultry", ]
+poultry_2020$prod_rank <- min_rank(desc(poultry_2020$production))
+poultry_2020$country[poultry_2020$prod_rank == 2]
+```
+
+## Country With More Poultry Than Pig Produced In 2020
+```{r}
+#| label: country-with-more-poultry-than-pig-2020
+#| echo: true
+#| eval: true
+#| include: true
+poultry_2020 <- meat[meat$year == 2020 & meat$animal == "poultry", ]
+pig_2020 <- meat[meat$year == 2020 & meat$animal == "pig", ]
+identical(poultry_2020$country, pig_2020$country)
+sum(poultry_2020$production > pig_2020$production, na.rm = TRUE)
+```
+
+# Construct Factors
+
+## Convert animal To Factor And Assign Result To New Column animal_factor With Confirmation
+```{r}
+#| label: construct-factors
+#| echo: true
+#| eval: true
+#| include: true
+meat$animal_factor <- factor(meat$animal)
+is.factor(meat$animal_factor)
+```
+
+## Report Results Of animal_factor
+
+### Report Levels Of New Factor Column
+```{r}
+#| label: report-levels
+#| echo: true
+#| eval: true
+#| include: true
+levels(meat$animal_factor)
+```
+
+### Check If Ordered Alphabetically
+```{r}
+#| label: check-order
+#| echo: true
+#| eval: true
+#| include: true
+identical(
+  min_rank(levels(meat$animal_factor)),
+  1:length(levels(meat$animal_factor))
+)
+```
+
+## Should meat$animal_factor Be An Ordered Factor?
+
+## Color Factor With Confirmation
+```{r}
+#| label: colour-factor
+#| echo: true
+#| eval: true
+#| include: true
+meat$color <- fct_collapse(
+  meat$animal_factor,
+  red = c("beef and buffalo", "mutton and goat", "pig"),
+  white = "poultry"
+)
+
+levels(meat$color)
+```
+
+# Add Country-Code Column
+```{r}
+#| label: add-country-code
+#| echo: true
+#| eval: true
+#| include: true
+meat$iso3 <- recode_values(
+  meat$country,
+  "Brunei Darussalam" ~ "BRN",
+  "Cambodia" ~ "KHM",
+  "Indonesia" ~ "IDN",
+  "Lao PDR" ~ "LAO",
+  "Malaysia" ~ "MYS",
+  "Myanmar" ~ "MMR",
+  "Philippines" ~ "PHL",
+  "Singapore" ~ "SGP",
+  "Thailand" ~ "THA",
+  "Viet Nam" ~ "VNM"
+)
+any(is.na(meat$iso3))
+nrow(unique(meat[, c("country", "iso3")]))
+```
