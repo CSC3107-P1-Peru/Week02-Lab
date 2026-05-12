@@ -67,20 +67,22 @@ c.
 nrow(meat): 280
 ncol(meat): 4
 
-### Predict Class
-country: Character\
-animal: Character\
-year: Numeric\
-production: Numeric
+### Nico Prediction
 
-### Predict Number of Distinct Values
-country: 10\
-animal: 7\
+a.
+Country: Character
+Animal: Character
+Year: Numeric
+Production: Numeric
+
+b.
+country: 10
+animal: 9
 year: 4
 
-### Predict the Values
-nrow(meat) = 280\
-ncol(meat) = 4
+c.
+nrow(meat): 100
+ncol(meat): 4
 
 ### Marc Predicition 
 a.
@@ -97,6 +99,21 @@ year: 4
 c.
 nrow(meat): 280
 ncol(meat): 6
+
+### Predict Class
+country: Character\
+animal: Character\
+year: Numeric\
+production: Numeric
+
+### Predict Number of Distinct Values
+country: 10\
+animal: 7\
+year: 4
+
+### Predict the Values
+nrow(meat) = 280\
+ncol(meat) = 4
 
 
 ## Answer by Querying
