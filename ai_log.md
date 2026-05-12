@@ -8,7 +8,6 @@ Using a logical mask built from the production column, list the country, animal,
 ### Response
 Here is the R code to complete these tasks, strictly using the allowed base R subsetting and logical operators.
 
-
 1. Confirm that at least one value in the production column is missing
 any(is.na(meat$production))
 
@@ -179,7 +178,6 @@ poultry_2020$country[poultry_2020$production == max_prod_2020]
 
 
 ### Response
-Yes, the ranking approach I provided is a genuinely different method from the code you pasted!
 
 Here is the breakdown of why they are logically distinct, which perfectly satisfies your lab's requirement to identify the country by a "second method":
 
