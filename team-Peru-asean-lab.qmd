@@ -17,6 +17,39 @@ meat <- read_csv("meat.csv")
 
 ## Prediction Individual
 
+## Travis' Predicition
+a.
+country: character
+animal: character
+year: numeric
+production: numeric
+
+b.
+country: 10
+animal: 7
+year: 4
+
+c.
+nrow(meat): 280
+ncol(meat): 4
+
+## Jie Yung Predicition 
+
+a.
+Country: Character
+Animal: Character
+Year: Numeric
+Production: Numeric
+
+b.
+country: 10
+animal: 6
+year: 4
+
+c. 
+nrow(meat): 100
+ncol(meat): 6
+
 ### Predict Class
 country: Character\
 animal: Character\
@@ -369,7 +402,22 @@ The `iso3` column maps each ASEAN country name to its three letter country code.
 
 ## AI Liaison Review
 
-TODO: AI Liaison to complete this section with the AI tool used, one useful AI suggestion, one suboptimal AI response, and how the team checked/corrected it.
+**Tool used:** Qwen3.6
+
+**Useful suggestion:** The AI correctly suggested using `fct_collapse()` with named 
+arguments to merge the four animal levels into `"red"` and `"white"`, which matched 
+the permitted toolbox and worked without modification.
+
+**Suboptimal response:** When asked to reveal column classes as a verifier cross-check 
+(Section 3.1), the AI included `class(meat$iso3)` alongside the original four columns. 
+This was incorrect because `iso3` does not exist at that point in the QMD — it is only 
+created later in Section 3.5. Running the chunk in order would cause an error. The team 
+identified the problem by tracing the QMD execution order and removed the `class(meat$iso3)` 
+line from the Section 3.1 chunk.
+
+**Overall, Qwen3.6 was a helpful collaborator for this lab. Most responses were correct
+and toolbox-compliant, and the one suboptimal response was caught and corrected before
+the final submission.**
 
 
 ## Reporter Review
