@@ -100,6 +100,23 @@ c.
 nrow(meat): 280
 ncol(meat): 6
 
+### Daniel Prediction
+
+a.
+country: character
+animal: character
+year: numeric
+production: numeric
+
+b.
+country: 10
+animal: 7
+year: 4
+
+c.
+nrow(meat): 280
+ncol(meat): 4
+
 ### Predict Class
 country: Character\
 animal: Character\
