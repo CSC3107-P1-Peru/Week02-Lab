@@ -67,7 +67,7 @@ c.
 nrow(meat): 280
 ncol(meat): 4
 
-### Nico Prediction
+### Nico Predicition 
 
 a.
 Country: Character
@@ -100,7 +100,7 @@ c.
 nrow(meat): 280
 ncol(meat): 6
 
-### Daniel Prediction
+### Daniel Predicition
 
 a.
 country: character
