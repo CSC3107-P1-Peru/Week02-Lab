@@ -82,6 +82,23 @@ year: 4
 nrow(meat) = 280\
 ncol(meat) = 4
 
+### Marc Predicition 
+a.
+country: character
+animal: character
+year: numeric
+production: numeric
+
+b.
+country: 10
+animal: 6
+year: 4
+
+c.
+nrow(meat): 280
+ncol(meat): 6
+
+
 ## Answer by Querying
 
 ### Class
