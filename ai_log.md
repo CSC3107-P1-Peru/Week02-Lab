@@ -179,6 +179,7 @@ poultry_2020$country[poultry_2020$production == max_prod_2020]
 
 ### Response
 
+
 Here is the breakdown of why they are logically distinct, which perfectly satisfies your lab's requirement to identify the country by a "second method":
 
 Method 1 (The code you pasted): This is a value-matching method. It scans the production column to find the absolute highest number (using max()), and then filters the dataset to find the exact row that matches that specific number.
