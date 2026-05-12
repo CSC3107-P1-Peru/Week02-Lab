@@ -1,3 +1,7 @@
+# GenAI Used: Gemini
+
+# Model: Gemini 3.1Pro
+
 ## Query 
 The production column contains some missing values.
 
