@@ -17,7 +17,7 @@ meat <- read_csv("meat.csv")
 
 ## Prediction Individual
 
-## Travis' Predicition
+### Travis' Predicition
 a.
 country: character
 animal: character
@@ -33,7 +33,7 @@ c.
 nrow(meat): 280
 ncol(meat): 4
 
-## Jie Yung Predicition 
+### Jie Yung Predicition 
 
 a.
 Country: Character
@@ -50,7 +50,7 @@ c.
 nrow(meat): 100
 ncol(meat): 6
 
-## Wee Han Predicition 
+### Wee Han Predicition 
 
 a.
 Country: Character
