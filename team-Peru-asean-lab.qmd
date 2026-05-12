@@ -458,8 +458,12 @@ I also checked that the written summaries matched the code outputs where possibl
 
 ## Coder Review
 
-TODO: Coder to complete this section after confirming the QMD renders successfully and code chunks run correctly.
 
+The coder creates the documents as well as writes the QMD file, ensuring strict compliance with the rules and regulations as well as the code standard.
+
+Firstly, the Navigator would tell us the part where the coder is supposed to implement, of which, the coder would start to produce the code, with the help of the AI Liaison, the code is produced by GenAI and then taken a look at by the coder, who then writes down the code with formatting implemented. If the code is not up to satisfactory standard, the coder would then manually adjust the code accordingly to fit the required standard.
+
+Overall, as the coder, I found the collaboration with the AI Liaison and other team members to be very productive and efficient. Reflecting on past experiences through manual coding without GenAI, the process is sped up significantly, reducing the need on time spent looking for the proper usage through documentation. However, as efficiently as GenAI can help us, it can also affect our code. GenAI code, while fast to produce is also not necesarily optimal and missing a few key parts to ensure that the QMD file is presentable. For example, with document specification requiring labels for example, code produced by GenAI would not necesarily include this, often giving the "raw" output. Thus, it is still very important for the coder to understand to a certain extent of how the code should be written and formatted, to ensure that the code is up to his/her standard, with GenAI as an assistant and not a replacement for the coder.
 
 ## Constructive Critic Review
 
