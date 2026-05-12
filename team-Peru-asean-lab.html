@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="team-Peru-asean-lab_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="team-Peru-asean-lab_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="team-Peru-asean-lab_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="team-Peru-asean-lab_files/libs/bootstrap/bootstrap-efbb37e9afcc02144ebbc7afd12a776f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="team-Peru-asean-lab_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -111,14 +111,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#checking-if-there-are-missing-values" id="toc-checking-if-there-are-missing-values" class="nav-link" data-scroll-target="#checking-if-there-are-missing-values"><span class="header-section-number">2.1</span> Checking if There Are Missing Values</a></li>
   <li><a href="#list-production-column-that-is-na" id="toc-list-production-column-that-is-na" class="nav-link" data-scroll-target="#list-production-column-that-is-na"><span class="header-section-number">2.2</span> List production Column That Is NA</a>
   <ul class="collapse">
-  <li><a href="#cross-check-mising-rows-by-second-method" id="toc-cross-check-mising-rows-by-second-method" class="nav-link" data-scroll-target="#cross-check-mising-rows-by-second-method"><span class="header-section-number">2.2.1</span> Cross Check Mising Rows By Second Method</a></li>
+  <li><a href="#cross-check-missing-rows-by-second-method" id="toc-cross-check-missing-rows-by-second-method" class="nav-link" data-scroll-target="#cross-check-missing-rows-by-second-method"><span class="header-section-number">2.2.1</span> Cross Check Missing Rows By Second Method</a></li>
   </ul></li>
   <li><a href="#compute-total-asean-production-across-all-years" id="toc-compute-total-asean-production-across-all-years" class="nav-link" data-scroll-target="#compute-total-asean-production-across-all-years"><span class="header-section-number">2.3</span> Compute Total ASEAN Production Across All Years</a>
   <ul class="collapse">
   <li><a href="#without-na-data-removed" id="toc-without-na-data-removed" class="nav-link" data-scroll-target="#without-na-data-removed"><span class="header-section-number">2.3.1</span> Without NA Data Removed</a></li>
   <li><a href="#with-na-data-removed" id="toc-with-na-data-removed" class="nav-link" data-scroll-target="#with-na-data-removed"><span class="header-section-number">2.3.2</span> With NA Data Removed</a></li>
+  <li><a href="#summary-of-missing-production-values-and-total-production" id="toc-summary-of-missing-production-values-and-total-production" class="nav-link" data-scroll-target="#summary-of-missing-production-values-and-total-production"><span class="header-section-number">2.3.3</span> Summary of missing production values and total production</a></li>
+  <li><a href="#assumption-made-by-using-na.rm-true" id="toc-assumption-made-by-using-na.rm-true" class="nav-link" data-scroll-target="#assumption-made-by-using-na.rm-true"><span class="header-section-number">2.3.4</span> Assumption made by using <code>na.rm = TRUE</code></a></li>
   </ul></li>
-  <li><a href="#assumptions-and-whether-that-assumption-is-justifiable-todo" id="toc-assumptions-and-whether-that-assumption-is-justifiable-todo" class="nav-link" data-scroll-target="#assumptions-and-whether-that-assumption-is-justifiable-todo"><span class="header-section-number">2.4</span> Assumptions And Whether That Assumption Is Justifiable (TODO)</a></li>
   </ul></li>
   <li><a href="#compare-countries-in-2020" id="toc-compare-countries-in-2020" class="nav-link" data-scroll-target="#compare-countries-in-2020"><span class="header-section-number">3</span> Compare Countries in 2020</a>
   <ul class="collapse">
@@ -127,7 +128,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#cross-check-by-second-method" id="toc-cross-check-by-second-method" class="nav-link" data-scroll-target="#cross-check-by-second-method"><span class="header-section-number">3.1.1</span> Cross Check By Second Method</a></li>
   </ul></li>
   <li><a href="#country-with-second-highest-poultry-production-in-2020" id="toc-country-with-second-highest-poultry-production-in-2020" class="nav-link" data-scroll-target="#country-with-second-highest-poultry-production-in-2020"><span class="header-section-number">3.2</span> Country With Second-Highest Poultry Production In 2020</a></li>
-  <li><a href="#country-with-more-poultry-than-pig-produced-in-2020" id="toc-country-with-more-poultry-than-pig-produced-in-2020" class="nav-link" data-scroll-target="#country-with-more-poultry-than-pig-produced-in-2020"><span class="header-section-number">3.3</span> Country With More Poultry Than Pig Produced In 2020</a></li>
+  <li><a href="#country-with-more-poultry-than-pig-produced-in-2020" id="toc-country-with-more-poultry-than-pig-produced-in-2020" class="nav-link" data-scroll-target="#country-with-more-poultry-than-pig-produced-in-2020"><span class="header-section-number">3.3</span> Country With More Poultry Than Pig Produced In 2020</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-2020-country-comparison" id="toc-summary-of-2020-country-comparison" class="nav-link" data-scroll-target="#summary-of-2020-country-comparison"><span class="header-section-number">3.3.1</span> Summary of 2020 country comparison</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#construct-factors" id="toc-construct-factors" class="nav-link" data-scroll-target="#construct-factors"><span class="header-section-number">4</span> Construct Factors</a>
   <ul class="collapse">
@@ -141,6 +145,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#color-factor-with-confirmation" id="toc-color-factor-with-confirmation" class="nav-link" data-scroll-target="#color-factor-with-confirmation"><span class="header-section-number">4.4</span> Color Factor With Confirmation</a></li>
   </ul></li>
   <li><a href="#add-country-code-column" id="toc-add-country-code-column" class="nav-link" data-scroll-target="#add-country-code-column"><span class="header-section-number">5</span> Add Country-Code Column</a></li>
+  <li><a href="#consolidate-the-results" id="toc-consolidate-the-results" class="nav-link" data-scroll-target="#consolidate-the-results"><span class="header-section-number">6</span> Consolidate the Results</a>
+  <ul class="collapse">
+  <li><a href="#ai-liaison-review" id="toc-ai-liaison-review" class="nav-link" data-scroll-target="#ai-liaison-review"><span class="header-section-number">6.1</span> AI Liaison Review</a></li>
+  <li><a href="#reporter-review" id="toc-reporter-review" class="nav-link" data-scroll-target="#reporter-review"><span class="header-section-number">6.2</span> Reporter Review</a></li>
+  <li><a href="#coder-review" id="toc-coder-review" class="nav-link" data-scroll-target="#coder-review"><span class="header-section-number">6.3</span> Coder Review</a></li>
+  <li><a href="#constructive-critic-review" id="toc-constructive-critic-review" class="nav-link" data-scroll-target="#constructive-critic-review"><span class="header-section-number">6.4</span> Constructive Critic Review</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -297,10 +308,10 @@ ncol(meat) = 4</p>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 160
 Columns: 4
-$ country    &lt;chr&gt; "Brunei Darussalam", "Cambodia", "Indonesia", "Lao PDR", "M…
-$ animal     &lt;chr&gt; "beef and buffalo", "beef and buffalo", "beef and buffalo",…
-$ year       &lt;dbl&gt; 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021,…
-$ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.89796…</code></pre>
+$ country    &lt;chr&gt; "Brunei Darussalam", "Cambodia", "Indonesia", "Lao PDR", "M~
+$ animal     &lt;chr&gt; "beef and buffalo", "beef and buffalo", "beef and buffalo",~
+$ year       &lt;dbl&gt; 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021,~
+$ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.89796~</code></pre>
 </div>
 </div>
 </section>
@@ -312,7 +323,7 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
+<pre><code># A tibble: 6 x 4
   country           animal            year production
   &lt;chr&gt;             &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
 1 Brunei Darussalam beef and buffalo  2021       4.27
@@ -329,7 +340,7 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(meat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
+<pre><code># A tibble: 6 x 4
   country     animal   year production
   &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt;
 1 Malaysia    poultry  2018      1873.
@@ -359,7 +370,7 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>meat[<span class="fu">is.na</span>(meat<span class="sc">$</span>production), <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"animal"</span>, <span class="st">"year"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 3
+<pre><code># A tibble: 4 x 3
   country  animal           year
   &lt;chr&gt;    &lt;chr&gt;           &lt;dbl&gt;
 1 Cambodia mutton and goat  2021
@@ -368,8 +379,8 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 4 Cambodia mutton and goat  2018</code></pre>
 </div>
 </div>
-<section id="cross-check-mising-rows-by-second-method" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="cross-check-mising-rows-by-second-method"><span class="header-section-number">2.2.1</span> Cross Check Mising Rows By Second Method</h3>
+<section id="cross-check-missing-rows-by-second-method" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="cross-check-missing-rows-by-second-method"><span class="header-section-number">2.2.1</span> Cross Check Missing Rows By Second Method</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>expected_decrease <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(meat<span class="sc">$</span>production))</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>meat_complete <span class="ot">&lt;-</span> meat[<span class="sc">!</span><span class="fu">is.na</span>(meat<span class="sc">$</span>production), ]</span>
@@ -379,6 +390,20 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(meat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 160</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(meat[<span class="sc">!</span><span class="fu">is.na</span>(meat<span class="sc">$</span>production), ])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 156</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(meat) <span class="sc">-</span> <span class="fu">nrow</span>(meat[<span class="sc">!</span><span class="fu">is.na</span>(meat<span class="sc">$</span>production), ])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="compute-total-asean-production-across-all-years" class="level2" data-number="2.3">
@@ -386,7 +411,7 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="without-na-data-removed" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="without-na-data-removed"><span class="header-section-number">2.3.1</span> Without NA Data Removed</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(meat<span class="sc">$</span>production)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(meat<span class="sc">$</span>production)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
@@ -395,15 +420,23 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="with-na-data-removed" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="with-na-data-removed"><span class="header-section-number">2.3.2</span> With NA Data Removed</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(meat<span class="sc">$</span>production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(meat<span class="sc">$</span>production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 83937.52</code></pre>
 </div>
 </div>
 </section>
+<section id="summary-of-missing-production-values-and-total-production" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="summary-of-missing-production-values-and-total-production"><span class="header-section-number">2.3.3</span> Summary of missing production values and total production</h3>
+<p>The code confirms that the <code>production</code> column contains missing values because <code>any(is.na(meat$production))</code> returns <code>TRUE</code>. We then used the logical mask <code>is.na(meat$production)</code> to filter the dataset and display only the rows where production is missing. The missing rows are shown using only the <code>country</code>, <code>animal</code>, and <code>year</code> columns so that we can clearly identify where the missing production values occur.</p>
+<p>To cross-check the number of missing rows, we calculated the expected decrease in rows by summing the number of <code>NA</code> values in the <code>production</code> column. We then created a new dataset called <code>meat_complete</code> that excludes rows with missing production values. By comparing the actual decrease in rows with the expected decrease, we confirmed that they match. This validates our identification of the missing values. The row count decreases from 160 to 156, confirming that there are 4 missing production values in the dataset.</p>
+<p>For the total production calculation, <code>sum(meat$production)</code> returns <code>NA</code> because the <code>production</code> column still contains missing values. R does not know how to add an unknown value, so the whole result becomes <code>NA</code>. When we use <code>sum(meat$production, na.rm = TRUE)</code>, R ignores the 4 missing values and adds up the remaining 156 known production values. This returns <code>83,937.52</code>, which represents the total ASEAN meat production from the non-missing records.</p>
 </section>
-<section id="assumptions-and-whether-that-assumption-is-justifiable-todo" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="assumptions-and-whether-that-assumption-is-justifiable-todo"><span class="header-section-number">2.4</span> Assumptions And Whether That Assumption Is Justifiable (TODO)</h2>
+<section id="assumption-made-by-using-na.rm-true" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="assumption-made-by-using-na.rm-true"><span class="header-section-number">2.3.4</span> Assumption made by using <code>na.rm = TRUE</code></h3>
+<p>Using <code>na.rm = TRUE</code> assumes that it is acceptable to ignore the missing production values instead of estimating or replacing them. This means the missing rows do not contribute to the total production calculation.</p>
+<p>This assumption is acceptable for a simple exploratory calculation because only 4 out of 160 production values are missing. However, it is not perfect because those missing rows still represent real country-animal-year records. If the missing production values were large, ignoring them would underestimate the true total ASEAN meat production.</p>
+</section>
 </section>
 </section>
 <section id="compare-countries-in-2020" class="level1" data-number="3">
@@ -411,10 +444,10 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="country-with-the-maximum-poultry-production-in-2020" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="country-with-the-maximum-poultry-production-in-2020"><span class="header-section-number">3.1</span> Country With The Maximum Poultry Production In 2020</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mask_2020_poultry <span class="ot">&lt;-</span> meat<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2020</span> <span class="sc">&amp;</span> meat<span class="sc">$</span>animal <span class="sc">==</span> <span class="st">"poultry"</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>poultry_2020 <span class="ot">&lt;-</span> meat[mask_2020_poultry, ]</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>max_prod_2020 <span class="ot">&lt;-</span> <span class="fu">max</span>(poultry_2020<span class="sc">$</span>production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>poultry_2020<span class="sc">$</span>country[poultry_2020<span class="sc">$</span>production <span class="sc">==</span> max_prod_2020]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>mask_2020_poultry <span class="ot">&lt;-</span> meat<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2020</span> <span class="sc">&amp;</span> meat<span class="sc">$</span>animal <span class="sc">==</span> <span class="st">"poultry"</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>poultry_2020 <span class="ot">&lt;-</span> meat[mask_2020_poultry, ]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>max_prod_2020 <span class="ot">&lt;-</span> <span class="fu">max</span>(poultry_2020<span class="sc">$</span>production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>poultry_2020<span class="sc">$</span>country[poultry_2020<span class="sc">$</span>production <span class="sc">==</span> max_prod_2020]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Indonesia"</code></pre>
 </div>
@@ -422,11 +455,11 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="cross-check-by-second-method" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="cross-check-by-second-method"><span class="header-section-number">3.1.1</span> Cross Check By Second Method</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>max_val <span class="ot">&lt;-</span> <span class="fu">max</span>(poultry_2020<span class="sc">$</span>production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>top_country_v1 <span class="ot">&lt;-</span> poultry_2020<span class="sc">$</span>country[poultry_2020<span class="sc">$</span>production <span class="sc">==</span> max_val]</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>poultry_2020<span class="sc">$</span>rank_desc <span class="ot">&lt;-</span> <span class="fu">min_rank</span>(<span class="fu">desc</span>(poultry_2020<span class="sc">$</span>production))</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>top_country_v2 <span class="ot">&lt;-</span> poultry_2020<span class="sc">$</span>country[poultry_2020<span class="sc">$</span>rank_desc <span class="sc">==</span> <span class="dv">1</span>]</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(top_country_v1, top_country_v2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>max_val <span class="ot">&lt;-</span> <span class="fu">max</span>(poultry_2020<span class="sc">$</span>production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>top_country_v1 <span class="ot">&lt;-</span> poultry_2020<span class="sc">$</span>country[poultry_2020<span class="sc">$</span>production <span class="sc">==</span> max_val]</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>poultry_2020<span class="sc">$</span>rank_desc <span class="ot">&lt;-</span> <span class="fu">min_rank</span>(<span class="fu">desc</span>(poultry_2020<span class="sc">$</span>production))</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>top_country_v2 <span class="ot">&lt;-</span> poultry_2020<span class="sc">$</span>country[poultry_2020<span class="sc">$</span>rank_desc <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(top_country_v1, top_country_v2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -436,9 +469,9 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="country-with-second-highest-poultry-production-in-2020" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="country-with-second-highest-poultry-production-in-2020"><span class="header-section-number">3.2</span> Country With Second-Highest Poultry Production In 2020</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>poultry_2020 <span class="ot">&lt;-</span> meat[meat<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2020</span> <span class="sc">&amp;</span> meat<span class="sc">$</span>animal <span class="sc">==</span> <span class="st">"poultry"</span>, ]</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>poultry_2020<span class="sc">$</span>prod_rank <span class="ot">&lt;-</span> <span class="fu">min_rank</span>(<span class="fu">desc</span>(poultry_2020<span class="sc">$</span>production))</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>poultry_2020<span class="sc">$</span>country[poultry_2020<span class="sc">$</span>prod_rank <span class="sc">==</span> <span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>poultry_2020 <span class="ot">&lt;-</span> meat[meat<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2020</span> <span class="sc">&amp;</span> meat<span class="sc">$</span>animal <span class="sc">==</span> <span class="st">"poultry"</span>, ]</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>poultry_2020<span class="sc">$</span>prod_rank <span class="ot">&lt;-</span> <span class="fu">min_rank</span>(<span class="fu">desc</span>(poultry_2020<span class="sc">$</span>production))</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>poultry_2020<span class="sc">$</span>country[poultry_2020<span class="sc">$</span>prod_rank <span class="sc">==</span> <span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Thailand"</code></pre>
 </div>
@@ -447,17 +480,22 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="country-with-more-poultry-than-pig-produced-in-2020" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="country-with-more-poultry-than-pig-produced-in-2020"><span class="header-section-number">3.3</span> Country With More Poultry Than Pig Produced In 2020</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>poultry_2020 <span class="ot">&lt;-</span> meat[meat<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2020</span> <span class="sc">&amp;</span> meat<span class="sc">$</span>animal <span class="sc">==</span> <span class="st">"poultry"</span>, ]</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>pig_2020 <span class="ot">&lt;-</span> meat[meat<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2020</span> <span class="sc">&amp;</span> meat<span class="sc">$</span>animal <span class="sc">==</span> <span class="st">"pig"</span>, ]</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(poultry_2020<span class="sc">$</span>country, pig_2020<span class="sc">$</span>country)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>poultry_2020 <span class="ot">&lt;-</span> meat[meat<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2020</span> <span class="sc">&amp;</span> meat<span class="sc">$</span>animal <span class="sc">==</span> <span class="st">"poultry"</span>, ]</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>pig_2020 <span class="ot">&lt;-</span> meat[meat<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2020</span> <span class="sc">&amp;</span> meat<span class="sc">$</span>animal <span class="sc">==</span> <span class="st">"pig"</span>, ]</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(poultry_2020<span class="sc">$</span>country, pig_2020<span class="sc">$</span>country)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(poultry_2020<span class="sc">$</span>production <span class="sc">&gt;</span> pig_2020<span class="sc">$</span>production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(poultry_2020<span class="sc">$</span>production <span class="sc">&gt;</span> pig_2020<span class="sc">$</span>production, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
+<section id="summary-of-2020-country-comparison" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="summary-of-2020-country-comparison"><span class="header-section-number">3.3.1</span> Summary of 2020 country comparison</h3>
+<p>The results show that Indonesia had the highest poultry production in 2020, while Thailand had the second highest poultry production in 2020. The comparison between poultry and pig production also shows that 6 countries produced more poultry than pig in 2020.</p>
+<p>The <code>identical()</code> check is important because it confirms that the country order in the poultry and pig vectors is the same before comparing their production values. This means each poultry value is being compared with the pig value for the same country.</p>
+</section>
 </section>
 </section>
 <section id="construct-factors" class="level1" data-number="4">
@@ -465,8 +503,8 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="convert-animal-to-factor-and-assign-result-to-new-column-animal_factor-with-confirmation" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="convert-animal-to-factor-and-assign-result-to-new-column-animal_factor-with-confirmation"><span class="header-section-number">4.1</span> Convert animal To Factor And Assign Result To New Column animal_factor With Confirmation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>meat<span class="sc">$</span>animal_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(meat<span class="sc">$</span>animal)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(meat<span class="sc">$</span>animal_factor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>meat<span class="sc">$</span>animal_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(meat<span class="sc">$</span>animal)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(meat<span class="sc">$</span>animal_factor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -477,7 +515,7 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="report-levels-of-new-factor-column" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="report-levels-of-new-factor-column"><span class="header-section-number">4.2.1</span> Report Levels Of New Factor Column</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(meat<span class="sc">$</span>animal_factor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(meat<span class="sc">$</span>animal_factor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "beef and buffalo" "mutton and goat"  "pig"              "poultry"         </code></pre>
 </div>
@@ -486,10 +524,10 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <section id="check-if-ordered-alphabetically" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="check-if-ordered-alphabetically"><span class="header-section-number">4.2.2</span> Check If Ordered Alphabetically</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">min_rank</span>(<span class="fu">levels</span>(meat<span class="sc">$</span>animal_factor)),</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(meat<span class="sc">$</span>animal_factor))</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">min_rank</span>(<span class="fu">levels</span>(meat<span class="sc">$</span>animal_factor)),</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(meat<span class="sc">$</span>animal_factor))</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -498,48 +536,76 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 </section>
 <section id="should-meatanimal_factor-be-an-ordered-factor" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="should-meatanimal_factor-be-an-ordered-factor"><span class="header-section-number">4.3</span> Should meat$animal_factor Be An Ordered Factor?</h2>
+<p>The output of <code>levels(meat$animal_factor)</code> shows that the animal factor has four levels: <code>beef and buffalo</code>, <code>mutton and goat</code>, <code>pig</code>, and <code>poultry</code>. The alphabetical check returns <code>TRUE</code>, which means the levels are arranged alphabetically.</p>
+<p><code>meat$animal_factor</code> should not be an ordered factor because the animal categories do not have a natural ranking. For example, <code>beef and buffalo</code>, <code>mutton and goat</code>, <code>pig</code>, and <code>poultry</code> are different categories of meat, but one is not naturally higher or lower than another. An ordered factor would be more suitable for categories such as <code>low</code>, <code>medium</code>, and <code>high</code>, where the order has meaning. Therefore, it is appropriate for <code>meat$animal_factor</code> to be an unordered factor.</p>
 </section>
 <section id="color-factor-with-confirmation" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="color-factor-with-confirmation"><span class="header-section-number">4.4</span> Color Factor With Confirmation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>meat<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="fu">fct_collapse</span>(</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  meat<span class="sc">$</span>animal_factor,</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">red =</span> <span class="fu">c</span>(<span class="st">"beef and buffalo"</span>, <span class="st">"mutton and goat"</span>, <span class="st">"pig"</span>),</span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">white =</span> <span class="st">"poultry"</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(meat<span class="sc">$</span>color)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>meat<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="fu">fct_collapse</span>(</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  meat<span class="sc">$</span>animal_factor,</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">red =</span> <span class="fu">c</span>(<span class="st">"beef and buffalo"</span>, <span class="st">"mutton and goat"</span>, <span class="st">"pig"</span>),</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">white =</span> <span class="st">"poultry"</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(meat<span class="sc">$</span>color)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "red"   "white"</code></pre>
 </div>
 </div>
+<p>The <code>fct_collapse()</code> function groups the original animal categories into broader meat-colour categories. <code>beef and buffalo</code>, <code>mutton and goat</code>, and <code>pig</code> are collapsed into the <code>red</code> level, while <code>poultry</code> is collapsed into the <code>white</code> level. The output of <code>levels(meat$color)</code> confirms that the new factor has two levels: <code>red</code> and <code>white</code>. This indicates that the collapse was successful, and the new <code>color</code> factor correctly categorizes the meats into red and white groups.</p>
 </section>
 </section>
 <section id="add-country-code-column" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Add Country-Code Column</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>meat<span class="sc">$</span>iso3 <span class="ot">&lt;-</span> <span class="fu">recode_values</span>(</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  meat<span class="sc">$</span>country,</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Brunei Darussalam"</span> <span class="sc">~</span> <span class="st">"BRN"</span>,</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Cambodia"</span> <span class="sc">~</span> <span class="st">"KHM"</span>,</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Indonesia"</span> <span class="sc">~</span> <span class="st">"IDN"</span>,</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Lao PDR"</span> <span class="sc">~</span> <span class="st">"LAO"</span>,</span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Malaysia"</span> <span class="sc">~</span> <span class="st">"MYS"</span>,</span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Myanmar"</span> <span class="sc">~</span> <span class="st">"MMR"</span>,</span>
-<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Philippines"</span> <span class="sc">~</span> <span class="st">"PHL"</span>,</span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Singapore"</span> <span class="sc">~</span> <span class="st">"SGP"</span>,</span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Thailand"</span> <span class="sc">~</span> <span class="st">"THA"</span>,</span>
-<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Viet Nam"</span> <span class="sc">~</span> <span class="st">"VNM"</span></span>
-<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">is.na</span>(meat<span class="sc">$</span>iso3))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>meat<span class="sc">$</span>iso3 <span class="ot">&lt;-</span> <span class="fu">recode_values</span>(</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  meat<span class="sc">$</span>country,</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Brunei Darussalam"</span> <span class="sc">~</span> <span class="st">"BRN"</span>,</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Cambodia"</span> <span class="sc">~</span> <span class="st">"KHM"</span>,</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Indonesia"</span> <span class="sc">~</span> <span class="st">"IDN"</span>,</span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Lao PDR"</span> <span class="sc">~</span> <span class="st">"LAO"</span>,</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Malaysia"</span> <span class="sc">~</span> <span class="st">"MYS"</span>,</span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Myanmar"</span> <span class="sc">~</span> <span class="st">"MMR"</span>,</span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Philippines"</span> <span class="sc">~</span> <span class="st">"PHL"</span>,</span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Singapore"</span> <span class="sc">~</span> <span class="st">"SGP"</span>,</span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Thailand"</span> <span class="sc">~</span> <span class="st">"THA"</span>,</span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Viet Nam"</span> <span class="sc">~</span> <span class="st">"VNM"</span></span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">is.na</span>(meat<span class="sc">$</span>iso3))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">unique</span>(meat[, <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"iso3"</span>)]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">unique</span>(meat[, <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"iso3"</span>)]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
 </div>
 </div>
+<p>The <code>iso3</code> column maps each ASEAN country name to its three letter country code. The output from <code>any(is.na(meat$iso3))</code> confirms that there are no missing ISO3 mappings after the recoding step. The output from <code>nrow(unique(meat[, c("country", "iso3")]))</code> confirms that there are 10 unique country code pairs, matching the 10 ASEAN countries in the dataset.</p>
+</section>
+<section id="consolidate-the-results" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Consolidate the Results</h1>
+<section id="ai-liaison-review" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="ai-liaison-review"><span class="header-section-number">6.1</span> AI Liaison Review</h2>
+<p>TODO: AI Liaison to complete this section with the AI tool used, one useful AI suggestion, one suboptimal AI response, and how the team checked/corrected it.</p>
+</section>
+<section id="reporter-review" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="reporter-review"><span class="header-section-number">6.2</span> Reporter Review</h2>
+<p>As the Reporter, I reviewed the written explanations in the QMD to make sure the findings were clearly explained in plain language. I summarised the key results from the dataset inspection, missing value analysis, 2020 country comparison, factor construction, and ISO3 country code mapping.</p>
+<p>The main findings are that the dataset contains 160 rows and 4 columns, covering 10 ASEAN countries, 4 animal categories, and 4 years from 2018 to 2021. The production column contains 4 missing values, all for Cambodia’s mutton and goat production from 2018 to 2021. For the 2020 comparison, Indonesia had the highest poultry production, Thailand had the second highest poultry production, and 6 countries produced more poultry than pig.</p>
+<p>I also checked that the written summaries matched the code outputs where possible and prepared the main points for the team’s short presentation. The presentation should highlight the dataset structure, the concentrated missing values, the 2020 poultry findings, and one example of why AI generated code must be checked against the lab’s permitted toolbox.</p>
+</section>
+<section id="coder-review" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="coder-review"><span class="header-section-number">6.3</span> Coder Review</h2>
+<p>TODO: Coder to complete this section after confirming the QMD renders successfully and code chunks run correctly.</p>
+</section>
+<section id="constructive-critic-review" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="constructive-critic-review"><span class="header-section-number">6.4</span> Constructive Critic Review</h2>
+<p>The Constructive Critic reviewed the QMD for clarity, structure, permitted toolbox compliance, and submission readiness.</p>
+<p>First, the QMD was checked to ensure that the sections followed the lab tasks in order: inspecting the <code>meat</code> tibble, handling missing values, comparing countries in 2020, constructing factors, adding ISO3 country codes, and consolidating the results. The explanations were also reviewed to make sure they clearly described what the code does and why the output makes sense.</p>
+<p>Second, the code chunks were scanned for functions and operators that are not allowed under the permitted toolbox. The final code uses permitted functions such as <code>read_csv()</code>, <code>class()</code>, <code>unique()</code>, <code>length()</code>, <code>nrow()</code>, <code>ncol()</code>, <code>glimpse()</code>, <code>head()</code>, <code>tail()</code>, <code>is.na()</code>, <code>any()</code>, <code>sum()</code>, <code>max()</code>, <code>min_rank()</code>, <code>desc()</code>, <code>identical()</code>, <code>factor()</code>, <code>levels()</code>, <code>fct_collapse()</code>, and <code>recode_values()</code>. No disallowed functions such as <code>filter()</code>, <code>select()</code>, <code>mutate()</code>, <code>summarise()</code>, or <code>case_when()</code> were found in the final code chunks.</p>
+<p>The Constructive Critic also flagged final clean-up items before submission: the AI Liaison Review, Reporter Review, and Coder Review sections should be completed by the respective roles; every code chunk should have a unique label; the QMD should use the project-relative path <code>read_csv("meat.csv")</code>; and the QMD should be rendered to HTML successfully. The final ZIP archive should also be checked to ensure that it contains the QMD file, rendered HTML file, <code>meat.csv</code>, AI log, and any generated Quarto files.</p>
+</section>
 </section>
 
 </main>

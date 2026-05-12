@@ -369,6 +369,8 @@ The `iso3` column maps each ASEAN country name to its three letter country code.
 
 ## AI Liaison Review
 
+TODO: AI Liaison to complete this section with the AI tool used, one useful AI suggestion, one suboptimal AI response, and how the team checked/corrected it.
+
 
 ## Reporter Review
 
@@ -380,6 +382,8 @@ I also checked that the written summaries matched the code outputs where possibl
 
 
 ## Coder Review
+
+TODO: Coder to complete this section after confirming the QMD renders successfully and code chunks run correctly.
 
 
 
