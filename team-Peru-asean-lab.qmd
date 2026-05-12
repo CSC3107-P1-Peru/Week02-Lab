@@ -82,6 +82,7 @@ class(meat$production)
 #| include: true
 length(unique(meat$country))
 ```
+
 #### animal
 ```{r}
 #| label: distinct-values-animal
@@ -90,6 +91,7 @@ length(unique(meat$country))
 #| include: true
 length(unique(meat$animal))
 ```
+
 #### year
 ```{r}
 #| label: distinct-values-year
@@ -109,6 +111,7 @@ length(unique(meat$year))
 #| include: true
 nrow(meat)
 ```
+
 #### Number of Columns of Meat
 ```{r}
 #| label: ncol-meat
@@ -167,7 +170,8 @@ any(is.na(meat$production))
 meat[is.na(meat$production), c("country", "animal", "year")]
 ```
 
-### Cross Check Mising Rows By Second Method
+
+### Cross Check Missing Rows By Second Method
 ```{r}
 #| label: cross-check-missing-rows
 #| echo: true
@@ -177,6 +181,13 @@ expected_decrease <- sum(is.na(meat$production))
 meat_complete <- meat[!is.na(meat$production), ]
 actual_decrease <- nrow(meat) - nrow(meat_complete)
 actual_decrease == expected_decrease
+```
+
+```{r}
+#| label: verify-missing-production
+nrow(meat)
+nrow(meat[!is.na(meat$production), ])
+nrow(meat) - nrow(meat[!is.na(meat$production), ])
 ```
 
 ## Compute Total ASEAN Production Across All Years
@@ -199,7 +210,19 @@ sum(meat$production)
 sum(meat$production, na.rm = TRUE)
 ```
 
-## Assumptions And Whether That Assumption Is Justifiable (TODO)
+### Summary of missing production values and total production
+
+The code confirms that the `production` column contains missing values because `any(is.na(meat$production))` returns `TRUE`. We then used the logical mask `is.na(meat$production)` to filter the dataset and display only the rows where production is missing. The missing rows are shown using only the `country`, `animal`, and `year` columns so that we can clearly identify where the missing production values occur.
+
+To cross-check the number of missing rows, we calculated the expected decrease in rows by summing the number of `NA` values in the `production` column. We then created a new dataset called `meat_complete` that excludes rows with missing production values. By comparing the actual decrease in rows with the expected decrease, we confirmed that they match. This validates our identification of the missing values. The row count decreases from 160 to 156, confirming that there are 4 missing production values in the dataset.
+
+For the total production calculation, `sum(meat$production)` returns `NA` because the `production` column still contains missing values. R does not know how to add an unknown value, so the whole result becomes `NA`. When we use `sum(meat$production, na.rm = TRUE)`, R ignores the 4 missing values and adds up the remaining 156 known production values. This returns `83,937.52`, which represents the total ASEAN meat production from the non-missing records.
+
+### Assumption made by using `na.rm = TRUE`
+
+Using `na.rm = TRUE` assumes that it is acceptable to ignore the missing production values instead of estimating or replacing them. This means the missing rows do not contribute to the total production calculation.
+
+This assumption is acceptable for a simple exploratory calculation because only 4 out of 160 production values are missing. However, it is not perfect because those missing rows still represent real country-animal-year records. If the missing production values were large, ignoring them would underestimate the true total ASEAN meat production.
 
 # Compare Countries in 2020
 
@@ -288,6 +311,10 @@ identical(
 
 ## Should meat$animal_factor Be An Ordered Factor?
 
+The output of `levels(meat$animal_factor)` shows that the animal factor has four levels: `beef and buffalo`, `mutton and goat`, `pig`, and `poultry`. The alphabetical check returns `TRUE`, which means the levels are arranged alphabetically.
+
+`meat$animal_factor` should not be an ordered factor because the animal categories do not have a natural ranking. For example, `beef and buffalo`, `mutton and goat`, `pig`, and `poultry` are different categories of meat, but one is not naturally higher or lower than another. An ordered factor would be more suitable for categories such as `low`, `medium`, and `high`, where the order has meaning. Therefore, it is appropriate for `meat$animal_factor` to be an unordered factor.
+
 ## Color Factor With Confirmation
 ```{r}
 #| label: colour-factor
@@ -302,6 +329,9 @@ meat$color <- fct_collapse(
 
 levels(meat$color)
 ```
+
+The `fct_collapse()` function groups the original animal categories into broader meat-colour categories. `beef and buffalo`, `mutton and goat`, and `pig` are collapsed into the `red` level, while `poultry` is collapsed into the `white` level. The output of `levels(meat$color)` confirms that the new factor has two levels: `red` and `white`. This indicates that the collapse was successful, and the new `color` factor correctly categorizes the meats into red and white groups.
+
 
 # Add Country-Code Column
 ```{r}
@@ -325,3 +355,26 @@ meat$iso3 <- recode_values(
 any(is.na(meat$iso3))
 nrow(unique(meat[, c("country", "iso3")]))
 ```
+
+
+# Consolidate the Results 
+
+## AI Liaison Review
+
+
+## Reporter Review
+
+
+## Coder Review
+
+
+
+## Constructive Critic Review
+
+The Constructive Critic reviewed the QMD for clarity, structure, permitted toolbox compliance, and submission readiness.
+
+First, the QMD was checked to ensure that the sections followed the lab tasks in order: inspecting the `meat` tibble, handling missing values, comparing countries in 2020, constructing factors, adding ISO3 country codes, and consolidating the results. The explanations were also reviewed to make sure they clearly described what the code does and why the output makes sense.
+
+Second, the code chunks were scanned for functions and operators that are not allowed under the permitted toolbox. The final code uses permitted functions such as `read_csv()`, `class()`, `unique()`, `length()`, `nrow()`, `ncol()`, `glimpse()`, `head()`, `tail()`, `is.na()`, `any()`, `sum()`, `max()`, `min_rank()`, `desc()`, `identical()`, `factor()`, `levels()`, `fct_collapse()`, and `recode_values()`. No disallowed functions such as `filter()`, `select()`, `mutate()`, `summarise()`, or `case_when()` were found in the final code chunks.
+
+The Constructive Critic also flagged final clean-up items before submission: the AI Liaison Review, Reporter Review, and Coder Review sections should be completed by the respective roles; every code chunk should have a unique label; the QMD should use the project-relative path `read_csv("meat.csv")`; and the QMD should be rendered to HTML successfully. The final ZIP archive should also be checked to ensure that it contains the QMD file, rendered HTML file, `meat.csv`, AI log, and any generated Quarto files.
