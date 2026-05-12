@@ -17,7 +17,7 @@ meat <- read_csv("meat.csv")
 
 ## Prediction Individual
 
-### Travis' Predicition
+### Travis' Prediction
 a.
 country: character
 animal: character
@@ -33,7 +33,7 @@ c.
 nrow(meat): 280
 ncol(meat): 4
 
-### Jie Yung Predicition 
+### Jie Yung Prediction
 
 a.
 Country: Character
@@ -50,7 +50,7 @@ c.
 nrow(meat): 100
 ncol(meat): 6
 
-### Wee Han Predicition 
+### Wee Han Prediction 
 
 a.
 Country: Character
@@ -67,7 +67,7 @@ c.
 nrow(meat): 280
 ncol(meat): 4
 
-### Nico Predicition 
+### Nico Prediction
 
 a.
 Country: Character
@@ -84,7 +84,7 @@ c.
 nrow(meat): 100
 ncol(meat): 4
 
-### Marc Predicition 
+### Marc Prediction
 a.
 country: character
 animal: character
@@ -100,8 +100,7 @@ c.
 nrow(meat): 280
 ncol(meat): 6
 
-### Daniel Predicition
-
+### Daniel Prediction
 a.
 country: character
 animal: character
@@ -118,18 +117,18 @@ nrow(meat): 280
 ncol(meat): 4
 
 ### Predict Class
-country: Character\
-animal: Character\
-year: Numeric\
+country: Character
+animal: Character
+year: Numeric
 production: Numeric
 
 ### Predict Number of Distinct Values
-country: 10\
-animal: 7\
+country: 10
+animal: 7
 year: 4
 
 ### Predict the Values
-nrow(meat) = 280\
+nrow(meat) = 280
 ncol(meat) = 4
 
 
@@ -477,8 +476,6 @@ The `iso3` column maps each ASEAN country name to its three letter country code.
 # Consolidate the Results 
 
 ## AI Liaison Review
-
-## 3.6 AI Liaison Review
 
 **Tool used:** Gemini Pro
 
