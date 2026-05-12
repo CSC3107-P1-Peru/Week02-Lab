@@ -50,6 +50,23 @@ c.
 nrow(meat): 100
 ncol(meat): 6
 
+## Wee Han Predicition 
+
+a.
+Country: Character
+Animal: Character
+Year: Numeric
+Production: Numeric
+
+b.
+country: 10
+animal: 8
+year: 4
+
+c. 
+nrow(meat): 280
+ncol(meat): 4
+
 ### Predict Class
 country: Character\
 animal: Character\
@@ -182,6 +199,14 @@ head(meat)
 #| include: true
 tail(meat)
 ```
+
+### Observations and surprises
+
+Year runs backwards. The data opens at 2021 and closes at 2018 — most people would expect chronological order (oldest first), but it's newest-first. 
+
+Countries are alphabetical within each group. Brunei → Cambodia → Indonesia → Lao PDR → Malaysia → Myanmar in the head; Malaysia → Myanmar → Philippines → Singapore → Thailand → Viet Nam in the tail. 
+
+"Viet Nam" is two words. It appears as "Viet Nam" rather than the more commonly typed "Vietnam", which could cause a mismatch if you ever join this dataset against another source.
 
 # Handle Missing Values
 
