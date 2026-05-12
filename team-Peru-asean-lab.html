@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="team-Peru-asean-lab_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="team-Peru-asean-lab_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="team-Peru-asean-lab_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="team-Peru-asean-lab_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="team-Peru-asean-lab_files/libs/bootstrap/bootstrap-efbb37e9afcc02144ebbc7afd12a776f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -89,9 +89,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#prediction-individual" id="toc-prediction-individual" class="nav-link" data-scroll-target="#prediction-individual"><span class="header-section-number">1.1</span> Prediction Individual</a>
   <ul class="collapse">
-  <li><a href="#predict-class" id="toc-predict-class" class="nav-link" data-scroll-target="#predict-class"><span class="header-section-number">1.1.1</span> Predict Class</a></li>
-  <li><a href="#predict-number-of-distinct-values" id="toc-predict-number-of-distinct-values" class="nav-link" data-scroll-target="#predict-number-of-distinct-values"><span class="header-section-number">1.1.2</span> Predict Number of Distinct Values</a></li>
-  <li><a href="#predict-the-values" id="toc-predict-the-values" class="nav-link" data-scroll-target="#predict-the-values"><span class="header-section-number">1.1.3</span> Predict the Values</a></li>
+  <li><a href="#travis-predicition" id="toc-travis-predicition" class="nav-link" data-scroll-target="#travis-predicition"><span class="header-section-number">1.1.1</span> Travis’ Predicition</a></li>
+  <li><a href="#jie-yung-predicition" id="toc-jie-yung-predicition" class="nav-link" data-scroll-target="#jie-yung-predicition"><span class="header-section-number">1.1.2</span> Jie Yung Predicition</a></li>
+  <li><a href="#wee-han-predicition" id="toc-wee-han-predicition" class="nav-link" data-scroll-target="#wee-han-predicition"><span class="header-section-number">1.1.3</span> Wee Han Predicition</a></li>
+  <li><a href="#predict-class" id="toc-predict-class" class="nav-link" data-scroll-target="#predict-class"><span class="header-section-number">1.1.4</span> Predict Class</a></li>
+  <li><a href="#predict-number-of-distinct-values" id="toc-predict-number-of-distinct-values" class="nav-link" data-scroll-target="#predict-number-of-distinct-values"><span class="header-section-number">1.1.5</span> Predict Number of Distinct Values</a></li>
+  <li><a href="#predict-the-values" id="toc-predict-the-values" class="nav-link" data-scroll-target="#predict-the-values"><span class="header-section-number">1.1.6</span> Predict the Values</a></li>
   </ul></li>
   <li><a href="#answer-by-querying" id="toc-answer-by-querying" class="nav-link" data-scroll-target="#answer-by-querying"><span class="header-section-number">1.2</span> Answer by Querying</a>
   <ul class="collapse">
@@ -104,6 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#head" id="toc-head" class="nav-link" data-scroll-target="#head"><span class="header-section-number">1.3.1</span> Head</a></li>
   <li><a href="#tail" id="toc-tail" class="nav-link" data-scroll-target="#tail"><span class="header-section-number">1.3.2</span> Tail</a></li>
+  <li><a href="#observations-and-surprises" id="toc-observations-and-surprises" class="nav-link" data-scroll-target="#observations-and-surprises"><span class="header-section-number">1.3.3</span> Observations and surprises</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#handle-missing-values" id="toc-handle-missing-values" class="nav-link" data-scroll-target="#handle-missing-values"><span class="header-section-number">2</span> Handle Missing Values</a>
@@ -151,6 +155,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reporter-review" id="toc-reporter-review" class="nav-link" data-scroll-target="#reporter-review"><span class="header-section-number">6.2</span> Reporter Review</a></li>
   <li><a href="#coder-review" id="toc-coder-review" class="nav-link" data-scroll-target="#coder-review"><span class="header-section-number">6.3</span> Coder Review</a></li>
   <li><a href="#constructive-critic-review" id="toc-constructive-critic-review" class="nav-link" data-scroll-target="#constructive-critic-review"><span class="header-section-number">6.4</span> Constructive Critic Review</a></li>
+  <li><a href="#navigator-review" id="toc-navigator-review" class="nav-link" data-scroll-target="#navigator-review"><span class="header-section-number">6.5</span> Navigator Review</a></li>
+  <li><a href="#verifier-review" id="toc-verifier-review" class="nav-link" data-scroll-target="#verifier-review"><span class="header-section-number">6.6</span> Verifier Review</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -190,21 +196,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="1"><span class="header-section-number">1</span> Inspect the <code>meat</code> Tibble</h1>
 <section id="prediction-individual" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="prediction-individual"><span class="header-section-number">1.1</span> Prediction Individual</h2>
-<section id="predict-class" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="predict-class"><span class="header-section-number">1.1.1</span> Predict Class</h3>
+<section id="travis-predicition" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="travis-predicition"><span class="header-section-number">1.1.1</span> Travis’ Predicition</h3>
+<ol type="a">
+<li><p>country: character animal: character year: numeric production: numeric</p></li>
+<li><p>country: 10 animal: 7 year: 4</p></li>
+<li><p>nrow(meat): 280 ncol(meat): 4</p></li>
+</ol>
+</section>
+<section id="jie-yung-predicition" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="jie-yung-predicition"><span class="header-section-number">1.1.2</span> Jie Yung Predicition</h3>
+<ol type="a">
+<li><p>Country: Character Animal: Character Year: Numeric Production: Numeric</p></li>
+<li><p>country: 10 animal: 6 year: 4</p></li>
+<li><p>nrow(meat): 100 ncol(meat): 6</p></li>
+</ol>
+</section>
+<section id="wee-han-predicition" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="wee-han-predicition"><span class="header-section-number">1.1.3</span> Wee Han Predicition</h3>
+<ol type="a">
+<li><p>Country: Character Animal: Character Year: Numeric Production: Numeric</p></li>
+<li><p>country: 10 animal: 8 year: 4</p></li>
+<li><p>nrow(meat): 280 ncol(meat): 4</p></li>
+</ol>
+</section>
+<section id="predict-class" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="predict-class"><span class="header-section-number">1.1.4</span> Predict Class</h3>
 <p>country: Character<br>
 animal: Character<br>
 year: Numeric<br>
 production: Numeric</p>
 </section>
-<section id="predict-number-of-distinct-values" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="predict-number-of-distinct-values"><span class="header-section-number">1.1.2</span> Predict Number of Distinct Values</h3>
+<section id="predict-number-of-distinct-values" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5" class="anchored" data-anchor-id="predict-number-of-distinct-values"><span class="header-section-number">1.1.5</span> Predict Number of Distinct Values</h3>
 <p>country: 10<br>
 animal: 7<br>
 year: 4</p>
 </section>
-<section id="predict-the-values" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="predict-the-values"><span class="header-section-number">1.1.3</span> Predict the Values</h3>
+<section id="predict-the-values" class="level3" data-number="1.1.6">
+<h3 data-number="1.1.6" class="anchored" data-anchor-id="predict-the-values"><span class="header-section-number">1.1.6</span> Predict the Values</h3>
 <p>nrow(meat) = 280<br>
 ncol(meat) = 4</p>
 </section>
@@ -308,10 +338,10 @@ ncol(meat) = 4</p>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 160
 Columns: 4
-$ country    &lt;chr&gt; "Brunei Darussalam", "Cambodia", "Indonesia", "Lao PDR", "M~
-$ animal     &lt;chr&gt; "beef and buffalo", "beef and buffalo", "beef and buffalo",~
-$ year       &lt;dbl&gt; 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021,~
-$ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.89796~</code></pre>
+$ country    &lt;chr&gt; "Brunei Darussalam", "Cambodia", "Indonesia", "Lao PDR", "M…
+$ animal     &lt;chr&gt; "beef and buffalo", "beef and buffalo", "beef and buffalo",…
+$ year       &lt;dbl&gt; 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021,…
+$ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.89796…</code></pre>
 </div>
 </div>
 </section>
@@ -323,7 +353,7 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   country           animal            year production
   &lt;chr&gt;             &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
 1 Brunei Darussalam beef and buffalo  2021       4.27
@@ -340,7 +370,7 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(meat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   country     animal   year production
   &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt;
 1 Malaysia    poultry  2018      1873.
@@ -351,6 +381,12 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 6 Viet Nam    poultry  2018       947.</code></pre>
 </div>
 </div>
+</section>
+<section id="observations-and-surprises" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="observations-and-surprises"><span class="header-section-number">1.3.3</span> Observations and surprises</h3>
+<p>Year runs backwards. The data opens at 2021 and closes at 2018 — most people would expect chronological order (oldest first), but it’s newest-first.</p>
+<p>Countries are alphabetical within each group. Brunei → Cambodia → Indonesia → Lao PDR → Malaysia → Myanmar in the head; Malaysia → Myanmar → Philippines → Singapore → Thailand → Viet Nam in the tail.</p>
+<p>“Viet Nam” is two words. It appears as “Viet Nam” rather than the more commonly typed “Vietnam”, which could cause a mismatch if you ever join this dataset against another source.</p>
 </section>
 </section>
 </section>
@@ -370,7 +406,7 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>meat[<span class="fu">is.na</span>(meat<span class="sc">$</span>production), <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"animal"</span>, <span class="st">"year"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 x 3
+<pre><code># A tibble: 4 × 3
   country  animal           year
   &lt;chr&gt;    &lt;chr&gt;           &lt;dbl&gt;
 1 Cambodia mutton and goat  2021
@@ -587,7 +623,10 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <h1 data-number="6"><span class="header-section-number">6</span> Consolidate the Results</h1>
 <section id="ai-liaison-review" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="ai-liaison-review"><span class="header-section-number">6.1</span> AI Liaison Review</h2>
-<p>TODO: AI Liaison to complete this section with the AI tool used, one useful AI suggestion, one suboptimal AI response, and how the team checked/corrected it.</p>
+<p><strong>Tool used:</strong> Qwen3.6</p>
+<p><strong>Useful suggestion:</strong> The AI correctly suggested using <code>fct_collapse()</code> with named arguments to merge the four animal levels into <code>"red"</code> and <code>"white"</code>, which matched the permitted toolbox and worked without modification.</p>
+<p><strong>Suboptimal response:</strong> When asked to reveal column classes as a verifier cross-check (Section 3.1), the AI included <code>class(meat$iso3)</code> alongside the original four columns. This was incorrect because <code>iso3</code> does not exist at that point in the QMD — it is only created later in Section 3.5. Running the chunk in order would cause an error. The team identified the problem by tracing the QMD execution order and removed the <code>class(meat$iso3)</code> line from the Section 3.1 chunk.</p>
+<p><strong>Overall, Qwen3.6 was a helpful collaborator for this lab. Most responses were correct and toolbox-compliant, and the one suboptimal response was caught and corrected before the final submission.</strong></p>
 </section>
 <section id="reporter-review" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="reporter-review"><span class="header-section-number">6.2</span> Reporter Review</h2>
@@ -605,6 +644,14 @@ $ production &lt;dbl&gt; 4.26741, 59.52424, 458.75500, 61.30639, 40.84550, 136.8
 <p>First, the QMD was checked to ensure that the sections followed the lab tasks in order: inspecting the <code>meat</code> tibble, handling missing values, comparing countries in 2020, constructing factors, adding ISO3 country codes, and consolidating the results. The explanations were also reviewed to make sure they clearly described what the code does and why the output makes sense.</p>
 <p>Second, the code chunks were scanned for functions and operators that are not allowed under the permitted toolbox. The final code uses permitted functions such as <code>read_csv()</code>, <code>class()</code>, <code>unique()</code>, <code>length()</code>, <code>nrow()</code>, <code>ncol()</code>, <code>glimpse()</code>, <code>head()</code>, <code>tail()</code>, <code>is.na()</code>, <code>any()</code>, <code>sum()</code>, <code>max()</code>, <code>min_rank()</code>, <code>desc()</code>, <code>identical()</code>, <code>factor()</code>, <code>levels()</code>, <code>fct_collapse()</code>, and <code>recode_values()</code>. No disallowed functions such as <code>filter()</code>, <code>select()</code>, <code>mutate()</code>, <code>summarise()</code>, or <code>case_when()</code> were found in the final code chunks.</p>
 <p>The Constructive Critic also flagged final clean-up items before submission: the AI Liaison Review, Reporter Review, and Coder Review sections should be completed by the respective roles; every code chunk should have a unique label; the QMD should use the project-relative path <code>read_csv("meat.csv")</code>; and the QMD should be rendered to HTML successfully. The final ZIP archive should also be checked to ensure that it contains the QMD file, rendered HTML file, <code>meat.csv</code>, AI log, and any generated Quarto files.</p>
+</section>
+<section id="navigator-review" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="navigator-review"><span class="header-section-number">6.5</span> Navigator Review</h2>
+<p>I reviewed the QMD for overall coherence, flow, and alignment with the lab objectives. I also ensured that the QMD tells a clear story about the ASEAN meat production dataset, starting from basic inspection to handling missing values, comparing countries, constructing factors, adding ISO3 codes and also checked that the explanations are accessible to a general audience and that the key findings are highlighted effectively. Coordinated with the AI Liaison, Reporter, Coder, and Constructive Critic to ensure that all sections are completed and that the final submission meets the lab requirements.</p>
+</section>
+<section id="verifier-review" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="verifier-review"><span class="header-section-number">6.6</span> Verifier Review</h2>
+<p>I cross-checked every factual claim in the QMD using a second method wherever possible. Column classes were confirmed via both individual <code>class()</code> calls and <code>glimpse()</code> on the whole tibble. Distinct value counts were re-verified using <code>value_counts()</code> rather than <code>unique()</code>, and <code>nro (meat) = 160</code> was also confirmed arithmetically as 10 countries × 4 animals × 4 years. Missing values were checked by subsetting on <code>!is.na(meat$production)</code> and confirming the row count dropped by exactly 4, consistent with <code>any(is.na(meat$production))</code> returning <code>TRUE</code>. The total production sum of 83,937.52 was validated by dropping NAs with <code>na.rm = TRUE</code> and cross-checking against a manual <code>dropna()</code> sum, which returned the identical value. For the country comparisons in 2020, the top poultry-producing country was verified by ranking all countries with <code>min_rank()</code> and confirming the top rank matched the <code>max()</code>-based result. The absence of missing values in <code>meat$iso3</code> was confirmed with <code>any(is.na(meat$iso3))</code>. No discrepancies were found between the Coder’s results and the independent checks.</p>
 </section>
 </section>
 
